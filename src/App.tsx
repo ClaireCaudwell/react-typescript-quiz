@@ -83,6 +83,11 @@ const App = () => {
       <Wrapper>
         <h1>General knowledge Quiz</h1>
         {!gameOver ? <p className="score">Score: {score}</p> : null}
+        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+          <button className="start" onClick={startQuiz}>
+            Start quiz
+          </button>
+        ) : null}
         {!loading && !gameOver && (
           <QuestionCard 
             questionNr={number +1}
@@ -93,12 +98,6 @@ const App = () => {
             callback={checkAnswer}
           />
         )}
-        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <button className="start" onClick={startQuiz}>
-            {}
-            Start quiz
-          </button>
-        ) : null}
         {!gameOver && !loading && userAnswers.length === number +1 && number !== TOTAL_QUESTIONS -1 ? (
           <button className="next" onClick={nextQuestion}>Next question</button>
         ): null}
