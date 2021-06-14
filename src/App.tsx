@@ -27,9 +27,7 @@ const App = () => {
   const [ userAnswers, setUserAnswers ] = useState<AnswerObject[]>([]);
   const [ score, setScore ] = useState(0);
   const [ gameOver, setGameOver ] = useState(true);
-
-  console.log(questions);
-  console.log(number);
+  console.log(gameOver);
 
   // function triggered when user starts the quiz
   const startQuiz = async () => {
@@ -84,11 +82,6 @@ const App = () => {
     <GlobalStyles />
       <Wrapper>
         <h1>General knowledge Quiz</h1>
-        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <button className="start" onClick={startQuiz}>
-            Start quiz
-          </button>
-        ) : null}
         {!gameOver ? <p className="score">Score: {score}</p> : null}
         {!loading && !gameOver && (
           <QuestionCard 
@@ -100,12 +93,17 @@ const App = () => {
             callback={checkAnswer}
           />
         )}
+        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+          <button className="start" onClick={startQuiz}>
+            {}
+            Start quiz
+          </button>
+        ) : null}
         {!gameOver && !loading && userAnswers.length === number +1 && number !== TOTAL_QUESTIONS -1 ? (
           <button className="next" onClick={nextQuestion}>Next question</button>
         ): null}
       </Wrapper>
-    </>
-    
+    </>    
   );
 }
 

@@ -5,34 +5,74 @@ export const Wrapper = styled.div`
     background-color: rgba(255,255,255, 0.7);
     border-radius: 10px;
     padding: 20px;
-    /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25); */
     text-align: center;
     margin-bottom: 10px;
 
     p {
-        font-size: 18px;
+        font-size: 20px;
     }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .main-div {
+        border: 1px solid #000;
+        border-radius: 10px;
+    }
+    
 `;
 
 type ButtonWrapperProps = {
     correct: boolean,
-    userClicked: boolean
+    userClicked: boolean,
 };
 
+// button wrapper takes in props from the above type object
+// must connect it after the element type defined inline with styled
 export const ButtonWrapper = styled.div<ButtonWrapperProps>`
-    transition: all 0.2s ease;
+    width: 70%;
+    margin: 10px;
 
-    :hover {
-        background-color: #3385ff;
-        transition: 0.2s ease;
+    @media(min-width: 750px) {
+        width: 45%;
     }
 
     button {
+        width: 100%;
         cursor: pointer;
         user-select: none;
-        background-color: #4d94ff;
         border: none;
         border-radius: 7px;
         margin: 5px 0;
+        padding: 7px;
+        font-size: 20px;
+        border: none;
+        transition: all 0.2s ease;
+        background-color: ${({ correct, userClicked }) => 
+            correct 
+                ? "#ccffcc" 
+                : !correct && userClicked
+                ? "#ff9999"
+                : "#80b3ff"
+        };
+        border: ${({ correct, userClicked }) => 
+            correct 
+                ? "2px solid #66ff66"
+                : !correct && userClicked
+                ? "2px solid #ff4d4d"
+                : "none"
+        };
+        &:hover {
+            transition: 0.2s ease;
+            background-color: ${({ correct, userClicked }) => 
+            correct 
+                ? "none"
+                : !correct && userClicked
+                ? "none"
+                : "#66a3ff"
+        };
+        }
     }
 `;

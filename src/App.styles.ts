@@ -12,12 +12,14 @@ html {
     height: 100%;
 }
 body {
-    background-image: url(${BGImage});
-    background-size: cover;
+    /* background-image: url(${BGImage}); */
+    /* background-size: cover; */
+    background-color: #e6f0ff;
     margin: 0;
     padding: 0 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 `;
 
@@ -25,11 +27,16 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background-color: rgba(255,255,255, 0.7);
     border-radius: 10px;
     padding: 20px;
-    margin-top: 50px;
-    width: 700px;
+    max-width: 700px;
+    margin: 20px 0;
+    text-align: center;
+    @media(min-width: 750px) {
+        margin-top: 50px;
+    }
 
     > p {
         color: #000;
@@ -37,8 +44,11 @@ export const Wrapper = styled.div`
 
     .score {
         color: #000;
-        font-size: 2rem;
-        margin: 0;
+        font-size: 27px;
+        margin: 20px 0;
+        background-color: #cce0ff;
+        padding: 10px;
+        border-radius: 10px;
     }
 
     h1 {
@@ -48,15 +58,14 @@ export const Wrapper = styled.div`
 
     .start, .next {
         cursor: pointer;
-        background-color: #4d94ff;
+        background-color: #80b3ff;
         border: none;
-        border-radius: 7px;
+        border-radius: 10px;
         font-size: 20px;
-        padding: 7px;
+        padding: 10px;
         transition: 0.2s;
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
         &:hover {
-            background-color: #3385ff;
+            background-color: #66a3ff;
             transition: 0.2s ease;
         }
     }
