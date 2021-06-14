@@ -2,7 +2,6 @@ import styled from "styled-components/macro";
 
 export const Wrapper = styled.div`
     max-width: 1100px;
-    background-color: rgba(255,255,255, 0.7);
     border-radius: 10px;
     padding: 20px;
     text-align: center;
